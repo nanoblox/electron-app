@@ -1,8 +1,11 @@
 {
-  "name": "electron-react-test",
+  "name": "electron-app",
   "version": "0.1.0",
   "private": true,
+  "description": "An admin panel for Nanoblox",
+  "author": "Hasnain Raza",
   "dependencies": {
+    "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -11,11 +14,23 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
+  "main": "public/electron.js",
+  "build": {
+    "appId": "nanoblox.admin.panel",
+    "productName": "Nanoblox Admin Panel",
+    "icon": "./public/icons/Nanoblox.png",
+    "win": {
+      "target": "NSIS"
+    }
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start-react": "craco start",
+    "build-react": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "start-electron": "electron .",
+    "pack-electron": "electron-builder --dir",
+    "dist-electron": "electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +49,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "electron": "^13.1.9",
+    "electron-builder": "^22.11.7",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
   }
 }
