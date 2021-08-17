@@ -1,5 +1,19 @@
+import { Switch, Link } from "react-router-dom";
+
+import Account from "./areas/Account";
+import Authentication from "./areas/Authentication";
+import Games from "./areas/Games";
+
 function App() {
-  return <div className="App h-8 w-8 bg-red-500"></div>;
+  return (
+    <div className="App">
+      <Switch>
+        {Account()}
+        {Authentication()}
+        {Games()}
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
