@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
 function createWindow() {
@@ -10,11 +10,13 @@ function createWindow() {
     },
   });
 
-  win.setIcon(path.join(__dirname, "icons/Nanoblox.png"));
+  win.webContents.openDevTools();
+
+  win.setIcon(path.join(__dirname, "assets/images/Nanoblox.png"));
   win.setMenu(null);
 
-  win.loadURL("http://localhost:3000");
-  //win.loadURL(`file://${path.join(__dirname, "../build/index.html")}`);
+  //win.loadURL("http://localhost:3000");
+  win.loadURL(`file://${path.join(__dirname, "../build/index.html")}`);
 }
 
 app.on("window-all-closed", function () {
